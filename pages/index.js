@@ -12,6 +12,7 @@ const Home = ({ cats }) => {
         {cats.map(({ name, photo }) => {
           return (
             <Card
+              key={name + photo.urls.regular}
               name={name}
               imageUrl={photo.urls.regular}
               stats={Object.fromEntries(

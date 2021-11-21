@@ -11,7 +11,13 @@ const Card = ({ name, imageUrl, stats }) => {
         pb="158%"
         position="relative"
       >
-        <Image layout="fill" objectFit="cover" unoptimized src={imageUrl} />
+        <Image
+          layout="fill"
+          objectFit="cover"
+          alt={`photo of ${name}`}
+          unoptimized
+          src={imageUrl}
+        />
       </Box>
       <Stack gridColumn="1/2" gridRow="1/2" zIndex={2}>
         <Box
@@ -26,6 +32,7 @@ const Card = ({ name, imageUrl, stats }) => {
           <Box background="linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)80%) ">
             {globalStats.map((globalStat) => (
               <Stat
+                key={globalStat.label}
                 label={globalStat.label}
                 value={stats[globalStat.key]}
                 unit={globalStat.unit}
